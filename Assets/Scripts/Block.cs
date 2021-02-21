@@ -8,12 +8,12 @@ public class Block : MonoBehaviour
 
     // cahed references
     Level level;
-    GameState gameState;
+    GameSession gameState;
 
     private void Start()
     {
         level = FindObjectOfType<Level>();
-        gameState = FindObjectOfType<GameState>();
+        gameState = FindObjectOfType<GameSession>();
 
         level.CountBreakableBlocks();
     }
