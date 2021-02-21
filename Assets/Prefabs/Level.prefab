@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60468306345eeb948b543801053b60c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocks: []
+  breakableBlocks: 0
