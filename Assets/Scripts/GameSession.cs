@@ -9,6 +9,7 @@ public class GameSession : MonoBehaviour
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlockDestroyed = 10;
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] bool isAutoPlayEnabled;
 
     // state
     [SerializeField] int currentScore = 0;
@@ -52,5 +53,10 @@ public class GameSession : MonoBehaviour
     private void updateText()
     {
         scoreText.text = currentScore.ToString();
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 }
