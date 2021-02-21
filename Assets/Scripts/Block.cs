@@ -13,24 +13,39 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
-        level = FindObjectOfType<Level>();
-        gameState = FindObjectOfType<GameSession>();
+        CountBreakableBlocks();
+    }
 
-        level.CountBreakableBlocks();
+    private void CountBreakableBlocks()
+    {
+        level = FindObjectOfType<Level>();
+
+        if (tag == "Breakable")
+        {
+            level.CountBlocks();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyBlock();
+        if (tag == "Breakable")
+        {
+            DestroyBlock();
+        }
     }
 
     private void DestroyBlock()
     {
+        AddToScore();
         PlaySFXEffect();
         Destroy(gameObject);
         TriggerSparklesVFX();
         level.BlockDestroyed();
-        gameState.AddToScore();
+    }
+
+    private void AddToScore()
+    {
+        FindObjectOfType<GameSession>().AddToScore();
     }
 
     private void PlaySFXEffect()
