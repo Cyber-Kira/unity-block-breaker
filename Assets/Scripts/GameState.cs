@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameState : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class GameState : MonoBehaviour
     // state
     [SerializeField] int currentScore = 0; //add to see a number
     [SerializeField] int pointsPerBlockDestroyed = 10;
+    [SerializeField] TMP_Text scoreText;
+
+    private void Start()
+    {
+        updateText();
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,5 +27,11 @@ public class GameState : MonoBehaviour
     public void AddToScore()
     {
         currentScore += pointsPerBlockDestroyed;
+        updateText();
+    }
+
+    private void updateText()
+    {
+        scoreText.text = currentScore.ToString();
     }
 }
